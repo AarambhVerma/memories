@@ -1,0 +1,36 @@
+<h3 class="display-4 mb-1">Welcome {{name}}</h3>
+
+
+{{#if stories}}
+    <p class="mt-0">Here are your Stories</p>
+    <div class="row mb-5">  
+
+        {{#each stories}}
+        <div class="col-lg-4 col-md-6 col-sm-12 my-2">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h3 class="card-title">{{title}}</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">{{status}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Created: {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</h6>
+                    <p class="card-text">{{stripTags (truncate body 100)}}</p>
+                    <a href="/stories/{{_id}}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Read more</a>
+                    <a href="/stories/edit/{{_id}}" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Edit</a>
+                    <form class="d-inline-block" action="/stories/{{_id}}" method="POST" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+
+{{else}}
+    <p>No stories available from your end, Try Adding some!</p>
+    <a href="/stories/add" class="d-lg-inline-block d-flex gap-2 align-items-center justify-content-center btn btn-lg btn-primary"><i class="fas fa-plus"></i> Share Something</a>
+{{/if}}
+
+

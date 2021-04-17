@@ -1,0 +1,12 @@
+<div class="404-container text-light {{#if user}}text-dark{{/if}}">
+    <h1 class="display-4 mb-1">404 Not Found</h1>
+    <p class="lead">We're sorry, this resource is not found</p>
+</div>
+
+{{#if user}}
+<a href="/dashboard" class="btn btn-primary btn-lg">Go to Dashboard</a>
+<a href="/stories" class="btn btn-secondary btn-lg">Read Public Stories</a>
+{{else}}
+{{> _login_bg}}        
+<a href="auth/google" type="button" class="btn btn-danger btn-lg my-3"><i class="fab fa-google google-logo"></i> Sign Up with Google</a>
+{{/if}}

@@ -1,0 +1,33 @@
+<h3 class="display-4 mb-1">{{story.title}}</h3>
+<p class="lead">{{{editIcon story.user user story._id false false}}}</p>
+
+<div class="card mb-3">
+    <div class="card-header">
+        Story Details
+    </div>
+    <div class="card-body">
+        <div class="card-text"><strong>Created At:</strong> {{formatDate story.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</div>
+        <div class="card-text"><strong>Status: </strong>{{story.status}}</div>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">
+        Story
+    </div>
+    <div class="card-body">
+        {{{story.body}}}
+    </div>
+</div>
+
+<div class="card author-card mb-3">
+    <div class="card-header">
+        About the Author
+    </div>
+    <div class="card-body">
+        <img src="{{story.user.image}}" class="card-img-top profile-image-card">
+        <h5 class="card-title">{{story.user.displayName}}</h5>
+        <a href="/stories/user/{{story.user._id}}" class="btn btn-primary">More From {{story.user.firstName}}</a>
+    </div>
+</div>
+   
