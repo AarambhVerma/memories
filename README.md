@@ -1,5 +1,7 @@
-# memories
+Memories
 > Share the best moments from your life
+---
+Memories is a mini-app based on node.js on which you can share stories from your life with the world.
 
 ## Usage
 - Download/clone the repository to your machine
